@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="register()" class="form-position">
+    <div class="width-panel panel panel-primary">
+        <div class="panel-heading align-center">
+            <h3 class="panel-title">Register</h3>
+        </div>
+        <hr />
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Username"
+                        formControlName="name" aria-describedby="basic-addon1">
+                    <small *ngIf="form.validControl('name')" class="aviso">Full Name invalid</small>
+                </div>
+                <div class="col-sm-6">
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" mask="(00) 0000-0000 ||(00) 0 0000-0000"
+                        placeholder="(99) 9999-9999 " aria-label="Phone Number" formControlName="phoneNumber"
+                        aria-describedby="basic-addon1">
+                    <small *ngIf="form.validControl('phoneNumber')" class="aviso">Phone Number invalid</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>E-mail</label>
+                    <input type="text" class="form-control" placeholder="example@example.com" aria-label="email"
+                        formControlName="email" aria-describedby="basic-addon1"
+                        (blur)="validEqual('email','confirmEmail')">
+                    <small *ngIf="form.validControl('email')" class="aviso">E-mail invalid</small>
+                </div>
+                <div class="col-sm-6">
+                    <label>Confirm E-mail</label>
+                    <input type="text" class="form-control" placeholder="example@example.com" aria-label="confirmEmail"
+                        formControlName="confirmEmail" aria-describedby="basic-addon1"
+                        (blur)="validEqual('email','confirmEmail')">
+                    <small *ngIf="form.validControl('confirmEmail')" class="aviso">Confirm E-mail invalid</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password"
+                        (blur)="validEqual('password','confirmPassword')" formControlName="password">
+                    <small *ngIf="form.validControl('password')" class="aviso">Password invalid</small>
+                </div>
+                <div class="col-sm-6">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Confirm Password"
+                        (blur)="validEqual('password','confirmPassword')" formControlName="confirmPassword">
+                    <small *ngIf="form.validControl('confirmPassword')" class="aviso">Confirm Password invalid</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <button type="button" (click)="back()" class="btn btn-light">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

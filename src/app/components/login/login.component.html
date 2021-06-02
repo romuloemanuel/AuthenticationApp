@@ -1,0 +1,57 @@
+<form [formGroup]="form" (ngSubmit)="logIn()" class="form-position">
+    <div class="width-panel panel panel-primary">
+        <div class="panel-heading align-center">
+            <h3 class="panel-title">Login</h3>
+        </div>
+        <hr />
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="E-mail" aria-label="Username"
+                            formControlName="email" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <small *ngIf="form.validControl('email')" class="aviso">E-mail invalid</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Password" aria-label="Username"
+                            formControlName="password" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <small *ngIf="form.validControl('password')" class="aviso">Password invalid</small>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6" style="margin-top: 1%;">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div>
+                <div class="col-sm-6 ">
+                    <button type="button" (click)="change()" class="btn btn-link float-right">Forgot Password?</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-12 align-center">
+                    <span class="not-register">Not registered?</span>
+                    <button type="button" (click)="create()" class="btn btn-link button-link-create">Create account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
